@@ -1,0 +1,2 @@
+vpn/clash.apk filter=lfs diff=lfs merge=lfs -text
+vpn/shanlian.apk filter=lfs diff=lfs merge=lfs -text
