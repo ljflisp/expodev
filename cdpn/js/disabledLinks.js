@@ -1,7 +1,6 @@
-(() => {
-  document.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-    });
-  });
-})()
+document.addEventListener("click", function (e) {
+  let target = e.target.closest("a");
+  if (target) {
+    e.preventDefault();
+  }
+});
