@@ -1,7 +1,7 @@
 function quickApply(str, fn, ele, options={}) {
   const {insert=false, pos='afterbegin', styleAnim: {toStr=false,animName='anim'}={}} = options
-  const data = str.split(' ').map(s => s.split('|'))
-  if (data[0].length == 1) data.flat()
+  let data = str.split(' ')
+  if (/\|/.test(str)) data = data.map(s => s.split('|'))
   const Z = (fn) => data.map(fn).join('')
   if (ele == 'style') {
     let style = document.createElement('style')
