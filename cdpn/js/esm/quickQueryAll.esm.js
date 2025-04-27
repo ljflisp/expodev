@@ -13,9 +13,23 @@ var splitMapWord = (options) => {
   return word.split(separator).map(fn).join(joinStr);
 };
 var upper = (str) => str.toUpperCase();
+var quickSetStyle = (selector, styleObj) => {
+  const elements = document.querySelectorAll(selector);
+  if (!elements.length)
+    return;
+  elements.forEach((element) => {
+    const el = element;
+    for (const key in styleObj) {
+      if (styleObj[key] !== undefined) {
+        el.style[key] = styleObj[key];
+      }
+    }
+  });
+};
 export {
   upper,
   splitMapWord,
+  quickSetStyle,
   queryAll,
   insertHtml,
   documentEvent
