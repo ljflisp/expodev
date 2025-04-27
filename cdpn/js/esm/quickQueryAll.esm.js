@@ -8,7 +8,14 @@ var insertHtml = (options) => {
   const Z = (fn2) => data.map(fn2).join("");
   document.querySelector(parent)?.insertAdjacentHTML(pos, isNormal ? str : `<${label}>${Z(fn)}</${label}>`);
 };
+var splitMapWord = (options) => {
+  let { word, separator = "", fn, joinStr = "" } = options;
+  return word.split(separator).map(fn).join(joinStr);
+};
+var upper = (str) => str.toUpperCase();
 export {
+  upper,
+  splitMapWord,
   queryAll,
   insertHtml,
   documentEvent
