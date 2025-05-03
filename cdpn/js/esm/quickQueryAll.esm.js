@@ -1,4 +1,4 @@
-var queryAll = (element) => document.querySelectorAll(element);
+var queryAll = (element, target=document) => target.querySelectorAll(element);
 var documentEvent = (evt, fn) => document.addEventListener(evt, fn);
 var insertHtml = (options) => {
   const { str, label, pos = "afterbegin", parent = "body", fn, isNormal = false } = options || {};

@@ -27,3 +27,5 @@ function quickApply(str, fn, ele, options={}) {
 function quickQuery(str, sign='', separator=' ') {
   return str.split(separator).map(s => document.querySelector(sign+s))
 }
+
+const queryAll = (element, target=document) => target.querySelectorAll(element);
