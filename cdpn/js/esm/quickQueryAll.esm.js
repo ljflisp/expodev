@@ -1,4 +1,10 @@
-var queryAll = (element, scope=document) => scope.querySelectorAll(element);
+var queryAll = (str, scope=document, separator = " ") => {
+  if (!str.includes(separator)) {
+    return scope.querySelectorAll(str);
+  } else {
+    return str.split(separator).map((s) => document.querySelector(s));
+  }
+};
 var documentEvent = (evt, fn) => document.addEventListener(evt, fn);
 var insertHtml = (options) => {
   const { str, label, pos = "afterbegin", parent = "body", fn, isNormal = false } = options || {};
