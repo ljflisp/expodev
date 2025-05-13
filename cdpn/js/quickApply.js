@@ -33,7 +33,13 @@ function quickQuery(str, sign='', separator=' ') {
   return str.split(separator).map(s => document.querySelector(sign+s))
 }
 
-const queryAll = (element, scope=document) => scope.querySelectorAll(element);
+const queryAll = (str, scope=document, separator = " ") => {
+  if (!str.includes(separator)) {
+    return scope.querySelectorAll(str);
+  } else {
+    return str.split(separator).map((s) => document.querySelector(s));
+  }
+};
 
 const paddingZero = (num) => {
   return num.toString().padStart(2,'0')
