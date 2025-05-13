@@ -34,3 +34,7 @@ function quickQuery(str, sign='', separator=' ') {
 }
 
 const queryAll = (element, scope=document) => scope.querySelectorAll(element);
+
+const paddingZero = (num) => {
+  return num.toString().padStart(2,'0')
+}
