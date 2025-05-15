@@ -44,3 +44,5 @@ const queryAll = (str, scope=document, separator = " ") => {
 const paddingZero = (num) => {
   return num.toString().padStart(2,'0')
 }
+
+const elesArr = (str, sign, separator=' ') => str.split(separator).map(s => document.querySelector(sign+s))
