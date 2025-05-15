@@ -1,10 +1,10 @@
 function quickApply(str, fn, ele, options={}) {
-  const {insert=false, pos='afterbegin', style: {isAnim=false, animName='anim', styleId='my-style'}={}} = options
+  const {insert=false, pos='afterbegin', separator=' ', style: {isAnim=false, animName='anim', styleId='my-style'}={}} = options
   let data
   if (Array.isArray(str)) {
     data = str
   } else {
-    data = str.split(' ')
+    data = str.split(separator)
   }
   if (/\|/.test(str)) data = data.map(s => s.split('|'))
   const Z = (fn) => data.map(fn).join('')
