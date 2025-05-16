@@ -46,3 +46,5 @@ const paddingZero = (num) => {
 }
 
 const elesArr = (str, sign, separator=' ') => str.split(separator).map(s => document.querySelector(sign+s))
+
+const logicCheck = (arr, type = 'and') => type === 'and' ? arr.every(Boolean) : arr.some(Boolean)
