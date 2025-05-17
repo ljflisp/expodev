@@ -50,3 +50,12 @@ const elesArr = (str, sign, separator=' ') => str.split(separator).map(s => docu
 const logicCheck = (arr, type = 'and') => type === 'and' ? arr.every(Boolean) : arr.some(Boolean)
 
 const singleQuery = (str) => queryAll(str)[0]
+
+const activeLink = (str) => {
+  let list = queryAll(str)
+  list[0].classList.add("active")
+  list.forEach((item) => item.onclick = () => {
+    list.forEach((item) => item.classList.remove("active"))
+    item.classList.add("active")
+  })
+}
