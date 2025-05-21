@@ -49,7 +49,7 @@ const elesArr = (str, sign, separator=' ') => str.split(separator).map(s => docu
 
 const logicCheck = (arr, type = 'and') => type === 'and' ? arr.every(Boolean) : arr.some(Boolean)
 
-const singleQuery = (str) => queryAll(str)[0]
+const singleQuery = s => document.querySelector(s)
 
 const activeLink = (str) => {
   let list = queryAll(str)
