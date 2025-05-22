@@ -51,11 +51,12 @@ const logicCheck = (arr, type = 'and') => type === 'and' ? arr.every(Boolean) : 
 
 const singleQuery = s => document.querySelector(s)
 
-const activeLink = (str) => {
+const activeLink = (str, fn = () => {}) => {
   let list = queryAll(str)
   list[0].classList.add("active")
   list.forEach((item) => item.onclick = () => {
     list.forEach((item) => item.classList.remove("active"))
     item.classList.add("active")
+    fn(item)
   })
 }
