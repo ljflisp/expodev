@@ -41,6 +41,8 @@ const queryAll = (str, scope=document, separator = " ") => {
   }
 };
 
+const addPrefix = (prefix, str, separator=' ') => str.split(separator).map(s=>prefix+s).join(separator)
+
 const paddingZero = (num) => {
   return num.toString().padStart(2,'0')
 }
