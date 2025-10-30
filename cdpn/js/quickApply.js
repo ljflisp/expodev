@@ -1,4 +1,8 @@
 function quickApply(str, fn, ele, options={}) {
+  if (!document.querySelector(ele)) {
+    console.error('No element found!')
+    return
+  }
   const {insert=false, pos='afterbegin', separator=' ', style: {isAnim=false, animName='anim', styleId='my-style'}={}} = options
   let data
   if (Array.isArray(str)) {
@@ -24,7 +28,7 @@ function quickApply(str, fn, ele, options={}) {
     if (insert) {
       document.querySelector(ele).insertAdjacentHTML(pos, Z(fn))
     } else {
-        document.querySelector(ele).innerHTML = Z(fn)
+      document.querySelector(ele).innerHTML = Z(fn)
     }
   }
 }
