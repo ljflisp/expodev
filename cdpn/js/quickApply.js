@@ -1,5 +1,5 @@
 function quickApply(str, fn, ele, options={}) {
-  if (!document.querySelector(ele)) {
+  if (!document.querySelector(ele) && ele != 'style') {
     console.error('No element found!')
     return
   }
