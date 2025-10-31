@@ -1,6 +1,6 @@
 function quickApply(str, fn, ele, options={}) {
   if (!document.querySelector(ele) && ele != 'style') {
-    console.error('No element found!')
+    console.error(`quickApply: selector \`${ele}\` not found!`)
     return
   }
   const {insert=false, pos='afterbegin', separator=' ', style: {isAnim=false, animName='anim', styleId='my-style'}={}} = options
@@ -56,6 +56,7 @@ const elesArr = (str, sign, separator=' ') => str.split(separator).map(s => docu
 const logicCheck = (arr, type = 'and') => type === 'and' ? arr.every(Boolean) : arr.some(Boolean)
 
 const singleQuery = s => document.querySelector(s)
+const capitalize = s => s.at(0).toUpperCase()+s.slice(1)
 
 const activeLink = (str, fn = () => {}) => {
   let list = queryAll(str)
