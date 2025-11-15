@@ -68,8 +68,8 @@ const activeLink = (str, fn = () => {}) => {
   })
 }
 
-const showCalendar = (str) => {
-  const eles = elesArr(str, '#')
+const showCalendar = (str, sign='#') => {
+  const eles = elesArr(str, sign)
   let lang = navigator.language
   let date = new Date()
 
