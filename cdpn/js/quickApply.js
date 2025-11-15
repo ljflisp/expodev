@@ -67,3 +67,17 @@ const activeLink = (str, fn = () => {}) => {
     fn(item)
   })
 }
+
+const showCalendar = (str) => {
+  const eles = elesArr(str, '#')
+  let lang = navigator.language
+  let date = new Date()
+
+  let dayNumber = String(date.getDate()).padStart(2, '0')
+  let dayName = date.toLocaleString(lang, { weekday: "long" })
+  let monthName = date.toLocaleString(lang, { month: "long" })
+  let year = date.getFullYear()
+  const rizi = [monthName, dayName, dayNumber, year]
+
+  eles.forEach((s, i) => s.innerHTML = rizi[i])
+}
