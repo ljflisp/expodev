@@ -73,11 +73,11 @@ const showCalendar = (str, sign='#') => {
   let lang = navigator.language
   let date = new Date()
 
-  let dayNumber = String(date.getDate()).padStart(2, '0')
-  let dayName = date.toLocaleString(lang, { weekday: "long" })
-  let monthName = date.toLocaleString(lang, { month: "long" })
+  let month = date.toLocaleString(lang, { month: "long" })
+  let weekday = date.toLocaleString(lang, { weekday: "long" })
+  let day = String(date.getDate()).padStart(2, '0')
   let year = date.getFullYear()
-  const rizi = [monthName, dayName, dayNumber, year]
+  const rizi = [month, weekday, day, year]
 
   eles.forEach((s, i) => s.innerHTML = rizi[i])
 }
