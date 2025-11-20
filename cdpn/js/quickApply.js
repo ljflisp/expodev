@@ -81,3 +81,26 @@ const showCalendar = (str, sign='#') => {
 
   eles.forEach((s, i) => s.innerHTML = rizi[i])
 }
+
+const comingSoon = (ele="#launch") => {
+  const countDownDate = new Date(`Jan 1, ${new Date().getFullYear()+1} 00:00:00`).getTime()
+  const x = setInterval(() => {
+    const now = new Date().getTime()
+    const distance = (countDownDate - now) / 1000
+    const dhms = [distance / 86400, distance % 86400 / 3600, distance % 3600 / 60, distance % 60].map(s => Math.floor(s))
+    if (Array.isArray(ele)) {
+      ele.forEach((s, i) => singleQuery(s).innerHTML = paddingZero(dhms[i]))
+    }
+    else {
+      singleQuery(ele).innerHTML = 'dhms'.split('').map((s, i) => dhms[i]+s).join(' ')
+    }
+    if (distance < 0) {
+      clearInterval(x)
+      if (Array.isArray(ele)) {
+        ele.forEach(s => singleQuery(s).innerHTML = '00')
+      } else {
+        singeQuery(ele).innerHTML = 'EXPIRED'
+      }
+    }
+  }, 1000)
+}
