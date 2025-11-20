@@ -92,7 +92,7 @@ const comingSoon = (ele="#launch") => {
       ele.forEach((s, i) => singleQuery(s).innerHTML = paddingZero(dhms[i]))
     }
     else {
-      singleQuery(ele).innerHTML = 'dhms'.split('').map((s, i) => dhms[i]+s).join(' ')
+      singleQuery(ele).innerHTML = 'dhms'.split('').map((s, i) => paddingZero(dhms[i])+s).join(' ')
     }
     if (distance < 0) {
       clearInterval(x)
