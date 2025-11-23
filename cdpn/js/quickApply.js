@@ -104,3 +104,20 @@ const comingSoon = (ele="#launch") => {
     }
   }, 1000)
 }
+
+const analogClock = (str, sign='.') => {
+  const hms = elesArr(str, sign)
+
+  const updateClock = () => {
+    const now = new Date()
+    const s = now.getSeconds() * 6
+    const m = now.getMinutes() * 6 + s / 60
+    const h = (now.getHours() % 12) * 30 + m / 12
+    const arr = [h, m, s]
+
+    hms.forEach((s, i) => s.style.transform = `rotate(${arr[i]}deg)`)
+  }
+
+  setInterval(updateClock, 1000)
+  updateClock()
+}
