@@ -121,3 +121,5 @@ const analogClock = (str, sign='.') => {
   setInterval(updateClock, 1000)
   updateClock()
 }
+
+const arrStr = (len, fn, concat=',') => Array.from({length: len}, fn).join(concat)
