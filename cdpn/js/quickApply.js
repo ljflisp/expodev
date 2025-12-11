@@ -126,3 +126,9 @@ const arrStr = (len, fn, concat=',') => {
   if (Array.isArray(len)) return Array.from(len).map(fn).join(concat)
   return Array.from({length: len}, fn).join(concat)
 }
+
+const strToArr = (str, separator=' ') => {
+  const arr = str.split(separator)
+  if (str.test(/\|/)) return arr.map(s => s.split('|'))
+  return arr
+}
