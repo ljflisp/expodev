@@ -122,4 +122,7 @@ const analogClock = (str, sign='.') => {
   updateClock()
 }
 
-const arrStr = (len, fn, concat=',') => Array.from({length: len}, fn).join(concat)
+const arrStr = (len, fn, concat=',') => {
+  if (Array.isArray(len)) return Array.from(len).map(fn).join(concat)
+  return Array.from({length: len}, fn).join(concat)
+}
