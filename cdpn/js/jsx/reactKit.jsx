@@ -38,8 +38,8 @@ const loadScripts = ({ ui, tailwind = true, urls = [] } = {}) => {
   return Promise.all(tasks);
 };
 
-const reactKit = (App) => {
-  loadScripts({ ui: 'react' }).then(() => {
+const reactKit = (App, {tailwind} = {}) => {
+  loadScripts({ ui: 'react', tailwind: tailwind}).then(() => {
     const rootDiv = document.createElement('div');
     rootDiv.id = 'root';
     document.body.appendChild(rootDiv);
