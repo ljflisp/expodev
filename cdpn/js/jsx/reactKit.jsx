@@ -35,11 +35,10 @@ const loadScripts = ({ ui, tailwind = true, urls = [] } = {}) => {
 
 const reactKit = (App) => {
   loadScripts({ ui: 'react' }).then(() => {
-  const rootDiv = document.createElement('div');
-  rootDiv.id = 'root';
-  document.body.appendChild(rootDiv);
-  const root = ReactDOM.createRoot(document.getElementById('root'));
+    const rootDiv = document.createElement('div');
+    rootDiv.id = 'root';
+    document.body.appendChild(rootDiv);
+    const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
-  ;
-});
+  });
 }
