@@ -17,7 +17,9 @@ const load = (url, type = 'js') => new Promise((resolve) => {
 const loadScripts = ({ ui, tailwind = true, urls = [] } = {}) => {
   const tasks = [];
 
-  if (tailwind) tasks.push(load('https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'));
+  const hasTailwind = [...document.scripts].some(s => s.src.includes('tailwindcss'))
+
+  if (!hasTailwind && tailwind) tasks.push(load('https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'));
 
   if (ui === 'react') {
     const reactUrls = [
