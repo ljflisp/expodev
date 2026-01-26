@@ -16,8 +16,12 @@ Ops.obj = (function(exports) {
     return Array.from({length}, (_,i) => start + i * step)
   }
 
+  const {toUpperCase, toLowerCase} = String.prototype
   const string = pureObj()
   string.split = (s,s2) => s?.split(s2)
+  string.upper = (s) => toUpperCase.call(s)
+  string.lower = (s) => toLowerCase.call(s)
+  string.cap = (s) => string.upper(s[0]) + s.slice(1)
 
   exports.isTag = isTag
   exports.isNum = isNum
@@ -36,8 +40,8 @@ Ops.obj = (function(exports) {
 
 Ops.dom = (function(exports) {
   const {pureObj, isArray, isUndefined, isNum, isString, isTag, isBool} = Ops.obj
-  const d = window.document || undefined
-  if (!d) return {}
+  const d = globalThis.document
+  if (isUndefined(d)) return {}
 
   const q = ({p=d,v}) => p.querySelector(v)
   const qa = ({p=d,v,idx}) => {
